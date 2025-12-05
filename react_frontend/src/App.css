@@ -1,321 +1,104 @@
-/* Ocean Professional Minimalist Theme */
-
+/* CSS Variables for Theme Management */
 :root {
-  --ocean-primary: #374151;   /* primary */
-  --ocean-secondary: #9CA3AF; /* secondary */
-  --ocean-success: #10B981;   /* success */
-  --ocean-error: #EF4444;     /* error */
-  --ocean-bg: #FFFFFF;        /* background */
-  --ocean-surface: #F9FAFB;   /* surface */
-  --ocean-text: #111827;      /* text */
-  --ocean-border: #E5E7EB;    /* subtle borders */
-  --ocean-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.04);
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #282c34;
+  --text-secondary: #61dafb;
+  --border-color: #e9ecef;
+  --button-bg: #007bff;
+  --button-text: #ffffff;
 }
 
 [data-theme="dark"] {
-  /* For future enhancement if a dark theme is needed */
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #282c34;
+  --text-primary: #ffffff;
+  --text-secondary: #61dafb;
+  --border-color: #404040;
+  --button-bg: #0056b3;
+  --button-text: #ffffff;
 }
 
-/* App frame */
 .App {
-  background: var(--ocean-bg);
+  text-align: center;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   min-height: 100vh;
-  color: var(--ocean-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header */
-.ocean-header {
-  background: var(--ocean-bg);
-  border-bottom: 1px solid var(--ocean-border);
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-.ocean-container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 16px;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-.ocean-header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.ocean-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.ocean-dot {
-  width: 12px;
-  height: 12px;
-  background: var(--ocean-primary);
-  border-radius: 999px;
-}
-
-.ocean-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--ocean-primary);
-}
-
-/* Actions */
-.ocean-actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.env-badge {
-  padding: 4px 8px;
-  border: 1px solid var(--ocean-border);
-  color: var(--ocean-secondary);
-  border-radius: 999px;
-  font-size: 12px;
-}
-
-/* Buttons */
-.ocean-btn {
-  border: 1px solid var(--ocean-border);
-  background: var(--ocean-surface);
-  color: var(--ocean-primary);
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: transform .05s ease, background .2s ease, box-shadow .2s ease;
-  box-shadow: var(--ocean-shadow);
-}
-
-.ocean-btn:hover {
-  background: #eef2f7;
-  transform: translateY(-1px);
-}
-
-.ocean-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* Main */
-.ocean-main {
-  background: var(--ocean-bg);
-}
-
-.ocean-card {
-  background: var(--ocean-surface);
-  border: 1px solid var(--ocean-border);
-  border-radius: 12px;
-  padding: 18px;
-  margin-top: 20px;
-  box-shadow: var(--ocean-shadow);
-}
-
-.ocean-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.ocean-card-title {
-  margin: 0;
-  font-size: 18px;
-  color: var(--ocean-primary);
-}
-
-.ocean-card-subtitle {
-  margin: 4px 0 0 0;
-  color: var(--ocean-secondary);
-  font-size: 13px;
-}
-
-.ocean-auto {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  color: var(--ocean-primary);
-}
-
-.ocean-select {
-  border: 1px solid var(--ocean-border);
-  background: #fff;
-  color: var(--ocean-primary);
-  padding: 6px 10px;
-  border-radius: 8px;
-}
-
-/* Divider */
-.ocean-divider {
-  height: 1px;
-  background: var(--ocean-border);
-  margin: 14px 0;
-}
-
-/* States */
-.ocean-state {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px;
-  border-radius: 10px;
-  border: 1px solid var(--ocean-border);
-}
-
-.ocean-loading {
-  background: #f7fafc;
-}
-
-.ocean-empty {
-  background: #f8fafb;
-}
-
-.ocean-error {
-  background: #fff5f5;
-  border-color: #fee2e2;
-}
-
-.state-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: var(--ocean-secondary);
-}
-
-.ocean-error .state-dot {
-  background: var(--ocean-error);
-}
-
-.loader {
-  width: 14px;
-  height: 14px;
-  border: 2px solid #e5e7eb;
-  border-top-color: var(--ocean-primary);
-  border-radius: 999px;
-  animation: spin 0.8s linear infinite;
-}
-
-.state-title {
-  font-weight: 600;
-  color: var(--ocean-primary);
-}
-
-.state-desc {
-  color: var(--ocean-secondary);
-  font-size: 13px;
-}
-
-/* Content */
-.ocean-content {
+.App-header {
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-
-.value-row {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease;
+  position: relative;
 }
 
-.value {
-  font-size: 40px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+.App-link {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
-.unit {
-  font-size: 18px;
-  margin-left: 6px;
-  color: var(--ocean-secondary);
-}
-
-.status-pill {
-  border: 1px solid var(--ocean-border);
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--ocean-primary);
-  background: #fff;
-}
-
-.status-pill.success {
-  color: var(--ocean-success);
-  border-color: #d1fae5;
-  background: #ecfdf5;
-}
-
-.status-pill.warning {
-  color: var(--ocean-secondary);
-  border-color: #e5e7eb;
-  background: #f9fafb;
-}
-
-.status-pill.error {
-  color: var(--ocean-error);
-  border-color: #fee2e2;
-  background: #fef2f2;
-}
-
-/* Meta */
-.meta {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-}
-
-.meta-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.meta-label {
-  color: var(--ocean-secondary);
-  font-size: 12px;
-}
-
-.meta-value {
-  color: var(--ocean-primary);
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
   font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer */
-.ocean-footer {
-  margin-top: 24px;
-  padding: 16px 0 32px;
-  border-top: 1px solid var(--ocean-border);
-  background: var(--ocean-bg);
-  color: var(--ocean-secondary);
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
 }
 
-.footer-note {
-  color: var(--ocean-secondary);
-  font-size: 12px;
+.theme-toggle:active {
+  transform: translateY(0);
 }
 
-/* Animations */
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* Responsive tweaks */
-@media (max-width: 640px) {
-  .value {
-    font-size: 32px;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  .ocean-card-header {
-    flex-direction: column;
-    align-items: flex-start;
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 12px;
   }
 }
